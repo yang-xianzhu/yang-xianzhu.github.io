@@ -42,5 +42,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
         with:
-          name: out  # 指定需要下载的 artifact 名称，要与上传时保持一致
-          path: out  # 指定下载后保存的路径
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: out  # 指定要部署的目录，这里同样指定为 out 目录
