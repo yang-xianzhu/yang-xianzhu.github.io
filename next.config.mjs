@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  basePath:'blog',
   output: process.env.NODE_ENV === 'production' ? 'export' : 'standalone',
   reactStrictMode: false,
 
