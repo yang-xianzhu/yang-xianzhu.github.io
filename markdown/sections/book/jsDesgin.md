@@ -11,7 +11,7 @@ description: JavaScript设计模式
 
 比如一些游戏开发中的人物的移动功能模块，比如移动是有多个方向的，比如上、下、左、右等。此时可能我们会写出这样的代码：
 
-```javascript
+```js
 function moveType(type){
   if(type ==='top'){
     console.log('向上移动')
@@ -31,7 +31,7 @@ function moveType(type){
 
 #### 动手实现
 
-```javascript
+```js
 const MoveState = function (){
   const Types = {
     top(){
@@ -65,7 +65,7 @@ move.action('left')
 
 #### 状态优化
 
-```javascript
+```js
 const MoveState = function(){
   // 内部状态的私有变量
   let _currentState = {}
@@ -134,7 +134,7 @@ move.change('left','top').start()
 
 那么我们理解了设计模式中的策略模式有什么应用场景呢？比如我们做一些电商类的项目，比如每一年的双十一都会搞一些促销活动，一些商品8折、一些9折出售，然后区分用户等级：普通用户购买金额满100返30，钻石用户满100返50。可能一开始我们看到这样的需求就会写出这样的代码：
 
-```javascript
+```js
 // 8折
 function parcent80(price){...}
 // 9折
@@ -151,7 +151,7 @@ function return50(price){...}
 
 为实现对每种促销方式，我们首先需要将这些算法封装在一个策略对象内，然后对每一种促销方式的策略调用时，直接对策略对象中的算法调用即可，而策略算法又独立地封装在策略对象内。为了方便我们的管理与使用，我们需要返回一个调用接口对象来实现对策略算法的调用。
 
-```javascript
+```js
 // 促销方式的策略对象
 const PriceStrategy = function(){
   // 内部算法对象
@@ -192,7 +192,7 @@ const price = PriceStrategy('parcent80',300)
 
 在vue、react等这些数据驱动的框架出现之前，我们开发者都是在使用DOM驱动的框架，比如大名鼎鼎的**jQuery**，相信大家都对以下代码都不陌生。
 
-```javascript
+```js
 $('div').animate({width:'200px',1000,'linear'})
 $('div').animate({width:'200px',1000,'swing'})
 ```
