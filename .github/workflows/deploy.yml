@@ -1,13 +1,14 @@
 name: Github Pages Astro CI
 
 on:
-  # 每当推送到 `main` 分支时触发工作流程
+  # Trigger the workflow every time you push to the `main` branch
+  # Using a different branch name? Replace `main` with your branch’s name
   push:
     branches: [ main ]
-  # 允许您手动从 GitHub 上的 Actions 标签页运行此工作流程
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
   workflow_dispatch:
   
-# 允许此作业克隆存储库并创建页面部署
+# Allow this job to clone the repo and create a page deployment
 permissions:
   contents: read
   pages: write
@@ -17,20 +18,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: 检出存储库
-        uses: actions/checkout@v2
-      - name: 安装依赖并构建网站
-        run: |
-          # 进入到你的工程目录
-          cd your_project_directory
-          # 运行构建命令（这里假设是使用 npm 进行构建）
-          npm install
-          npm run build
-      - name: 上传网站文件
-        uses: actions/upload-artifact@v2
+      - name: Checkout your repository using git
+        uses: actions/checkout@v2          
+      - name: Install, build, and upload your site
+        uses: withastro/action@v0
         with:
           name: out  # 指定上传的 artifact 名称，可根据需要修改
           path: out  # 指定要上传的文件路径，这里假设你的打包文件在 out 目录中
+        # with:
+            # path: . # The root location of your Astro project inside the repository. (optional)
+            # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
+            # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+
 
   deploy:
     needs: build
@@ -39,13 +38,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: 下载构建的网站文件
-        uses: actions/download-artifact@v2
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
         with:
           name: out  # 指定需要下载的 artifact 名称，要与上传时保持一致
           path: out  # 指定下载后保存的路径
-      - name: 部署到 Github Pages
-        uses: actions/deploy-pages@v1
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: out  # 指定要部署的目录，这里同样指定为 out 目录
