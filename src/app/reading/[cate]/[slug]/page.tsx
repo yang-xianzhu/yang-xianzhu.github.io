@@ -57,14 +57,14 @@ export default async (props: {
         <>
           <Divider className="ml-auto mt-6 w-1/4" />
 
-          <p className="text-right opacity-80">
-            最后更新于{' '}
+          {/* <p className="text-right opacity-80">
+            最后更新于
             {updatedAt
               ? new Date(updatedAt).toLocaleString('zh-CN', {
-                  timeZone: 'Asia/Shanghai',
-                })
+                timeZone: 'Yzz/Guangzhou',
+              })
               : 'N/A'}
-          </p>
+          </p> */}
         </>
       )}
 
@@ -73,8 +73,8 @@ export default async (props: {
       {CONFIG.wip && (
         <>
           <Divider className="mt-12" />
-          <p>本书还在编写中..</p>
-          <p>
+          <p>持续更新中...</p>
+          {/* <p>
             前往{' '}
             <a
               href="https://innei.in/posts/technology/my-first-nextjs-book-here#comment"
@@ -84,7 +84,7 @@ export default async (props: {
               https://innei.in/posts/tech/my-first-nextjs-book-here#comment
             </a>{' '}
             发表你的观点吧。
-          </p>
+          </p> */}
         </>
       )}
     </div>

@@ -1,17 +1,55 @@
 [
   {
     "paths": [
-      "./sections/guide/what-this.md"
+      "./sections/guide/home.md"
     ],
     "title": "开始"
   },
   {
     "paths": [
-      "./sections/usage/markdown.md",
-      "./sections/usage/draw.md",
-      "./sections/usage/custom-component.md",
-      "./sections/usage/highlight.md"
+      "./sections/interviewUestions/basis.md",
+      "./sections/interviewUestions/git.md",
+      "./sections/interviewUestions/http.md",
+      "./sections/interviewUestions/projectProblems.md",
+      "./sections/interviewUestions/smallProgra.md",
+      "./sections/interviewUestions/typeScript.md",
+      "./sections/interviewUestions/vue.md",
+      "./sections/interviewUestions/react.md"
     ],
-    "title": "使用"
+    "title": "面试题"
+  },
+  {
+    "paths": [
+      "./sections/book/newWorld.md",
+      "./sections/book/jsDesgin.md",
+      "./sections/book/fourthEdition.md",
+      "./sections/book/refactor.md",
+      "./sections/book/vueDesign.md",
+      "./sections/book/dontKnowJSTop.md",
+      "./sections/book/dontKnowJSMiddle.md",
+      "./sections/book/dontKnowJSBottom.md",
+      "./sections/book/jsAlgorithm.md"
+    ],
+    "title": "书籍"
+  },
+  {
+    "paths": [
+      "./sections/dataAndAlgorithms/data.md",
+      "./sections/dataAndAlgorithms/algorithms.md"
+    ],
+    "title": "数据结构与算法"
+  },
+  {
+    "paths": [
+      "./sections/toolLibrary/animation.md"
+    ],
+    "title": "工具库"
+  },
+  {
+    "paths": [
+      "./sections/project/node.md",
+      "./sections/project/vite.md"
+    ],
+    "title": "工程化"
   }
 ]

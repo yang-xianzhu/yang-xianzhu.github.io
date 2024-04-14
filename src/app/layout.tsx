@@ -17,6 +17,7 @@ export default async (props: PropsWithChildren) => {
       <head>
         <meta charSet="UTF-8" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="icon" href="/logo.jpeg" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"

@@ -134,7 +134,7 @@ const DonateButtonInternal: Component<HTMLMotionProps<'button'>> = ({
       }}
       {...props}
     >
-      <ActionAsideIcon className="icon-[mingcute--teacup-line] hover:text-uk-brown-dark" />
+      {/* <ActionAsideIcon className="icon-[mingcute--teacup-line] hover:text-uk-brown-dark" /> */}
     </MotionButtonBase>
   )
 }

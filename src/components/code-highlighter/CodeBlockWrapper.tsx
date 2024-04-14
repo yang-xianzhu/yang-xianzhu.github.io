@@ -5,6 +5,7 @@ import clsx from 'clsx'
 import type { FC } from 'react'
 
 import { getViewport } from '~/atoms/hooks'
+import useCopyToClipboard from '~/hooks/common/use-copy-to-clipboard'
 import { useMaskScrollArea } from '~/hooks/shared/use-mask-scrollarea'
 import { clsxm } from '~/lib/helper'
 
@@ -13,8 +14,6 @@ import { AutoResizeHeight } from '../shared/AutoResizeHeight'
 import styles from './CodeHighlighter.module.css'
 
 const parseFilenameFromAttrs = (attrs: string) => {
-  // filename=""
-
   const match = attrs.match(/filename="([^"]+)"/)
   if (match) {
     return match[1]
@@ -41,9 +40,7 @@ export const CodeBlockWrapper: FC<CodeBlockProps> = (props) => {
     langIcon,
   } = props
 
-  const handleCopy = useCallback(() => {
-    navigator.clipboard.writeText(value)
-  }, [value])
+  const { isCopy, copyToClipboard } = useCopyToClipboard()
 
   const codeBlockRef = useRef<HTMLDivElement>(null)
 
@@ -109,7 +106,7 @@ export const CodeBlockWrapper: FC<CodeBlockProps> = (props) => {
       )}
       <div className="bg-accent/10 py-2">
         <MotionButtonBase
-          onClick={handleCopy}
+          onClick={() => copyToClipboard(value)}
           className={clsxm(
             'absolute right-2 top-2 z-[1] flex rounded border border-current p-2 text-xs center',
             'rounded-md border border-black/5 bg-accent/80 p-1.5 text-white backdrop-blur duration-200 dark:border-white/10',
@@ -117,7 +114,11 @@ export const CodeBlockWrapper: FC<CodeBlockProps> = (props) => {
             filename && 'top-12',
           )}
         >
-          <i className="icon-[mingcute--copy-2-fill] h-4 w-4" />
+          {isCopy ? (
+            <i className="icon-[mingcute--check-2-fill] h-4 w-4" />
+          ) : (
+            <i className="icon-[mingcute--copy-2-fill] h-4 w-4" />
+          )}
         </MotionButtonBase>
         <AutoResizeHeight spring className="relative">
           <div

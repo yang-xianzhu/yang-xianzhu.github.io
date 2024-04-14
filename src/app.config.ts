@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 
 export const DONATE = {
-  link: 'https://github.com/sponsors/Innei',
+  link: 'https://github.com/yang-xianzhu',
   qrcode: [
     'https://cdn.jsdelivr.net/gh/Innei/img-bed@master/20191211132347.png',
     'https://cdn.innei.ren/bed/2023/0424213144.png',
@@ -16,23 +16,23 @@ export const CONFIG = {
   /**
    * public book hostname
    */
-  urlBase: 'https://nextjs-book.innei.in',
+  urlBase: 'https://github.com/yang-xianzhu',
 }
 
 export const SEO = {
   title: {
-    absolute: 'Book SSG Template',
-    template: `%s | ${'Book SSG Template'}`,
+    absolute: `Yzz's Blog`,
+    template: `%s | ${`Yzz's Blog`}`,
   },
   metadataBase: new URL(CONFIG.urlBase),
   twitter: {
     card: 'summary_large_image',
     creator: '@__oQuery',
-    site: 'https://innei.in',
+    site: 'https://github.com/yang-xianzhu',
   },
   openGraph: {
     type: 'book',
-    authors: ['innei'],
+    authors: ['Yzz'],
     tags: ['nextjs'],
     images: [],
   },

@@ -15,31 +15,31 @@ export const BanCopyWrapper: FC<PropsWithChildren> = (props) => {
   const [showCopyWarn, setShowCopyWarn] = useState(false)
   const ref = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    if (!ref.current) {
-      return
-    }
-    const $el = ref.current
-    $el.oncopy = (e) => {
-      e.preventDefault()
-      setShowCopyWarn(true)
-    }
+  // useEffect(() => {
+  //   if (!ref.current) {
+  //     return
+  //   }
+  //   const $el = ref.current
+  //   $el.oncopy = (e) => {
+  //     e.preventDefault()
+  //     setShowCopyWarn(true)
+  //   }
 
-    return () => {
-      $el.oncopy = null
-    }
-  }, [])
+  //   return () => {
+  //     $el.oncopy = null
+  //   }
+  // }, [])
 
-  useEffect(() => {
-    if (showCopyWarn) {
-      const id = setTimeout(() => {
-        setShowCopyWarn(false)
-      }, 2000)
-      return () => {
-        clearTimeout(id)
-      }
-    }
-  }, [showCopyWarn])
+  // useEffect(() => {
+  //   if (showCopyWarn) {
+  //     const id = setTimeout(() => {
+  //       setShowCopyWarn(false)
+  //     }, 2000)
+  //     return () => {
+  //       clearTimeout(id)
+  //     }
+  //   }
+  // }, [showCopyWarn])
   return (
     <BanCopyContext.Provider value={true}>
       <div ref={ref}>{props.children}</div>
