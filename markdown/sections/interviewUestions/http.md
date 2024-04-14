@@ -66,7 +66,7 @@ HTTPS：主要是由HTTP+SSL构建的可进行加密传输、身份认证的一�
 4. 第四次挥手是客户端断开连接
 
 
-```js
+```bash
 // 清理npm缓存
 npm cache clean -f
 // 安装scss

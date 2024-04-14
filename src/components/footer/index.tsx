@@ -14,7 +14,7 @@ export const PageFooter = () => {
   return (
     <footer className="py-8">
       <div className="space-y-4 text-center opacity-50">
-        <div>
+        {/* <div>
           本内容采用{' '}
           <a
             href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -25,16 +25,13 @@ export const PageFooter = () => {
             BY-NC-SA 4.0)
           </a>{' '}
           进行许可。
-        </div>
+        </div> */}
         <div>
-          © 2024{' '}
-          <a href="https://innei.in" target="_blank" rel="noreferrer">
-            Innei
-          </a>
+          © 2024 <MLink href="https://github.com/yang-xianzhu">Yzz</MLink>
           <DividerVertical />
-          <MLink href="https://github.com/innei">GitHub</MLink>{' '}
+          <MLink href="https://github.com/yang-xianzhu">GitHub</MLink>
           <DividerVertical />
-          <MotionButtonBase
+          {/* <MotionButtonBase
             onClick={() => {
               present({
                 content: () => <DonateContent />,
@@ -43,7 +40,7 @@ export const PageFooter = () => {
             }}
           >
             Sponsor
-          </MotionButtonBase>
+          </MotionButtonBase> */}
         </div>
       </div>
     </footer>
