@@ -13,20 +13,15 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [20.x]
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
       - name: Install dependencies
         run: pnpm install
       - name: Build project
-        run: pnpm build
-        # with:
-        #   path: . # The root location of your Astro project inside the repository. (optional)
-        #   node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
-        #   package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
+        run: npm run build
+        # 或者如果你确实定义了 pnpm 的 build 命令，可以使用以下命令
+        # run: pnpm run build
 
   deploy:
     needs: build
