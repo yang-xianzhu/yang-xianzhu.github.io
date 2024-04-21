@@ -33,12 +33,15 @@ jobs:
         run: pnpm install
       - name: Build project
         run: npm run build
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
         # 或者如果你确实定义了 pnpm 的 build 命令，可以使用以下命令
         # run: pnpm run build
 
   deploy:
     environment:
-      name: out
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
