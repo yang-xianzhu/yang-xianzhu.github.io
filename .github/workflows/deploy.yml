@@ -37,14 +37,12 @@ jobs:
         # run: pnpm run build
 
   deploy:
-    needs: build
-    runs-on: ubuntu-latest
     environment:
-      name: out
-      url: https://yang-xianzhu.github.io/blog/
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
-        env:
-          FOLDER: out # 指定构建产物文件夹路径为 'out'
+        uses: actions/deploy-pages@v4
