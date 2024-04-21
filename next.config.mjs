@@ -2,7 +2,6 @@
 const nextConfig = {
   output: process.env.NODE_ENV === 'production' ? 'export' : 'standalone',
   reactStrictMode: false,
-
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
     config.plugins.push(
       new webpack.optimize.MinChunkSizePlugin({
