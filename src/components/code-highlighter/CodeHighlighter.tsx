@@ -43,6 +43,7 @@ const languageToIconMap = {
   sh: <FluentShieldError20Regular />,
   shell: <FluentShieldError20Regular />,
   zsh: <FluentShieldError20Regular />,
+  text: <RiMarkdownFill />,
 }
 
 export const HighLighter: FC<Props> = async (props) => {
