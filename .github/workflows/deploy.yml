@@ -29,8 +29,6 @@ jobs:
           node-version: [20.x]
           cache: 'pnpm'
 
-      - name: Checkout your repository using git
-
       - name: Install dependencies
         run: pnpm install
       - name: Build project
