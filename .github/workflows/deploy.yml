@@ -52,8 +52,8 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v2
         with:
-          name: build-artifact
-          path: ./out
+          name: out
+          path: out
 
       # 使用 actions/deploy-pages@v4 动作来部署到 GitHub Pages
       - name: Deploy to GitHub Pages
