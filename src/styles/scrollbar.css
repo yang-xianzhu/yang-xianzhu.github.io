@@ -56,3 +56,7 @@ body {
 *::-webkit-scrollbar-corner {
   background: theme(colors.zinc.100);
 }
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* WebKit browsers */
+}

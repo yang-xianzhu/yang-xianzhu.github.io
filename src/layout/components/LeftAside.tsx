@@ -8,7 +8,13 @@ export const LeftAside = async ({ asWeight }: { asWeight?: boolean }) => {
   const { sections } = buildSectionData()
 
   return (
-    <aside className={asWeight ? '' : 'sticky top-16 mt-16 min-h-[300px]'}>
+    <aside
+      className={
+        asWeight
+          ? 'hide-scrollbar overflow-y-scroll'
+          : 'sticky top-16 mt-16 min-h-[300px]'
+      }
+    >
       <h1 className="text-center text-lg font-bold lg:text-left">
         {SEO.title.absolute}
       </h1>
