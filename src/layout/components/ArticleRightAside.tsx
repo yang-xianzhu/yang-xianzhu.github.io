@@ -10,6 +10,8 @@ import { TocAside } from '~/components/toc'
 import { useIsClient } from '~/hooks/common/use-is-client'
 
 import { useLayoutContainerRef } from './LayoutContainer'
+// 主题色切换
+import { ThemeToggle } from './ThemeToggle'
 
 export const ArticleRightAside: FC<{
   children?: React.ReactNode
@@ -20,6 +22,7 @@ export const ArticleRightAside: FC<{
   return (
     <RootPortal to={layoutRef.current!}>
       <aside className="sticky top-[120px] mt-[120px] h-[calc(100vh-6rem-4.5rem-150px-120px)]">
+        <ThemeToggle />
         <div className="relative h-full">
           <TocAside
             as="div"

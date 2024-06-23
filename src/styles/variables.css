@@ -32,34 +32,20 @@ details summary {
   text-shadow: none;
 }
 
+/* view-transition */
+
+::view-transition-old(root),
 ::view-transition-new(root) {
-  animation: turnOff 800ms ease-in-out;
-}
-::view-transition-old(root) {
   animation: none;
+  mix-blend-mode: normal;
 }
 
-@keyframes turnOn {
-  0% {
-    clip-path: polygon(0% 0%, 100% 0, 100% 0, 0 0);
-  }
-  100% {
-    clip-path: polygon(0% 0%, 100% 0, 100% 100%, 0 100%);
-  }
-}
+/* 进入dark模式和退出dark模式时，两个图像的位置顺序正好相反 */
 
-[data-theme='dark']::view-transition-new(root) {
-  animation: turnOn 800ms ease-in-out;
-}
 ::view-transition-old(root) {
-  animation: none;
+  z-index: 1;
 }
 
-@keyframes turnOff {
-  0% {
-    clip-path: polygon(0 100%, 100% 100%, 100% 100%, 0% 100%);
-  }
-  100% {
-    clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
-  }
+::view-transition-new(root) {
+  z-index: 2147483646;
 }
